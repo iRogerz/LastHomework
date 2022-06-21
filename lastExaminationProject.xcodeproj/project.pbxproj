@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3554847728616DFD0054B570 /* RangersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847628616DFD0054B570 /* RangersData.swift */; };
+		3554847928616E0A0054B570 /* ElasticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847828616E0A0054B570 /* ElasticData.swift */; };
+		3554847B28616E160054B570 /* DynamoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847A28616E160054B570 /* DynamoData.swift */; };
 		35C56E8D286046CE00A29504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56E8C286046CE00A29504 /* AppDelegate.swift */; };
 		35C56E8F286046CE00A29504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56E8E286046CE00A29504 /* SceneDelegate.swift */; };
 		35C56E91286046CE00A29504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56E90286046CE00A29504 /* ViewController.swift */; };
@@ -15,6 +18,10 @@
 		35C56EA4286046D000A29504 /* lastExaminationProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EA3286046D000A29504 /* lastExaminationProjectTests.swift */; };
 		35C56EAE286046D000A29504 /* lastExaminationProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EAD286046D000A29504 /* lastExaminationProjectUITests.swift */; };
 		35C56EB0286046D000A29504 /* lastExaminationProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EAF286046D000A29504 /* lastExaminationProjectUITestsLaunchTests.swift */; };
+		35C56EC32860581D00A29504 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 35C56EC22860581D00A29504 /* SnapKit */; };
+		35C56EC628605C5B00A29504 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EC528605C5B00A29504 /* SegmentControl.swift */; };
+		35C56EC828606E6B00A29504 /* ElasticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EC728606E6B00A29504 /* ElasticTableViewCell.swift */; };
+		35C56ECA28606ED000A29504 /* ElasticFullImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EC928606ED000A29504 /* ElasticFullImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3554847628616DFD0054B570 /* RangersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangersData.swift; sourceTree = "<group>"; };
+		3554847828616E0A0054B570 /* ElasticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticData.swift; sourceTree = "<group>"; };
+		3554847A28616E160054B570 /* DynamoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamoData.swift; sourceTree = "<group>"; };
 		35C56E89286046CE00A29504 /* lastExaminationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lastExaminationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C56E8C286046CE00A29504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35C56E8E286046CE00A29504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +57,9 @@
 		35C56EA9286046D000A29504 /* lastExaminationProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lastExaminationProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C56EAD286046D000A29504 /* lastExaminationProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastExaminationProjectUITests.swift; sourceTree = "<group>"; };
 		35C56EAF286046D000A29504 /* lastExaminationProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastExaminationProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		35C56EC528605C5B00A29504 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
+		35C56EC728606E6B00A29504 /* ElasticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticTableViewCell.swift; sourceTree = "<group>"; };
+		35C56EC928606ED000A29504 /* ElasticFullImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticFullImageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C56EC32860581D00A29504 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,9 +111,10 @@
 		35C56E8B286046CE00A29504 /* lastExaminationProject */ = {
 			isa = PBXGroup;
 			children = (
+				35C56EBC2860472F00A29504 /* Model */,
 				35C56EBE2860474100A29504 /* View */,
 				35C56EBD2860473B00A29504 /* Controller */,
-				35C56EBC2860472F00A29504 /* Model */,
+				35C56ECB286082B600A29504 /* Utilities */,
 				35C56E8C286046CE00A29504 /* AppDelegate.swift */,
 				35C56E8E286046CE00A29504 /* SceneDelegate.swift */,
 				35C56E95286046D000A29504 /* Assets.xcassets */,
@@ -129,6 +144,9 @@
 		35C56EBC2860472F00A29504 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3554847628616DFD0054B570 /* RangersData.swift */,
+				3554847828616E0A0054B570 /* ElasticData.swift */,
+				3554847A28616E160054B570 /* DynamoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,8 +162,18 @@
 		35C56EBE2860474100A29504 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35C56EC728606E6B00A29504 /* ElasticTableViewCell.swift */,
+				35C56EC928606ED000A29504 /* ElasticFullImageTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		35C56ECB286082B600A29504 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				35C56EC528605C5B00A29504 /* SegmentControl.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +192,9 @@
 			dependencies = (
 			);
 			name = lastExaminationProject;
+			packageProductDependencies = (
+				35C56EC22860581D00A29504 /* SnapKit */,
+			);
 			productName = lastExaminationProject;
 			productReference = 35C56E89286046CE00A29504 /* lastExaminationProject.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +267,9 @@
 				Base,
 			);
 			mainGroup = 35C56E80286046CE00A29504;
+			packageReferences = (
+				35C56EC12860581D00A29504 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 35C56E8A286046CE00A29504 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -278,9 +312,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C56ECA28606ED000A29504 /* ElasticFullImageTableViewCell.swift in Sources */,
 				35C56E91286046CE00A29504 /* ViewController.swift in Sources */,
+				3554847928616E0A0054B570 /* ElasticData.swift in Sources */,
 				35C56E8D286046CE00A29504 /* AppDelegate.swift in Sources */,
+				35C56EC828606E6B00A29504 /* ElasticTableViewCell.swift in Sources */,
+				3554847B28616E160054B570 /* DynamoData.swift in Sources */,
+				3554847728616DFD0054B570 /* RangersData.swift in Sources */,
 				35C56E8F286046CE00A29504 /* SceneDelegate.swift in Sources */,
+				35C56EC628605C5B00A29504 /* SegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +652,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35C56EC12860581D00A29504 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35C56EC22860581D00A29504 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35C56EC12860581D00A29504 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 35C56E81286046CE00A29504 /* Project object */;
 }
