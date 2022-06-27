@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3554847728616DFD0054B570 /* RangersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847628616DFD0054B570 /* RangersData.swift */; };
-		3554847928616E0A0054B570 /* ElasticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847828616E0A0054B570 /* ElasticData.swift */; };
-		3554847B28616E160054B570 /* DynamoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847A28616E160054B570 /* DynamoData.swift */; };
+		3554847728616DFD0054B570 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847628616DFD0054B570 /* CurrentData.swift */; };
+		3554847F286177990054B570 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554847E286177990054B570 /* Store.swift */; };
+		3554848128617C6F0054B570 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554848028617C6F0054B570 /* Network.swift */; };
 		35C56E8D286046CE00A29504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56E8C286046CE00A29504 /* AppDelegate.swift */; };
 		35C56E8F286046CE00A29504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56E8E286046CE00A29504 /* SceneDelegate.swift */; };
 		35C56E91286046CE00A29504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56E90286046CE00A29504 /* ViewController.swift */; };
@@ -42,9 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3554847628616DFD0054B570 /* RangersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangersData.swift; sourceTree = "<group>"; };
-		3554847828616E0A0054B570 /* ElasticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticData.swift; sourceTree = "<group>"; };
-		3554847A28616E160054B570 /* DynamoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamoData.swift; sourceTree = "<group>"; };
+		3554847628616DFD0054B570 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
+		3554847E286177990054B570 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		3554848028617C6F0054B570 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		35C56E89286046CE00A29504 /* lastExaminationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lastExaminationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C56E8C286046CE00A29504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35C56E8E286046CE00A29504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,9 +144,9 @@
 		35C56EBC2860472F00A29504 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3554847628616DFD0054B570 /* RangersData.swift */,
-				3554847828616E0A0054B570 /* ElasticData.swift */,
-				3554847A28616E160054B570 /* DynamoData.swift */,
+				3554847628616DFD0054B570 /* CurrentData.swift */,
+				3554847E286177990054B570 /* Store.swift */,
+				3554848028617C6F0054B570 /* Network.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,11 +314,11 @@
 			files = (
 				35C56ECA28606ED000A29504 /* ElasticFullImageTableViewCell.swift in Sources */,
 				35C56E91286046CE00A29504 /* ViewController.swift in Sources */,
-				3554847928616E0A0054B570 /* ElasticData.swift in Sources */,
 				35C56E8D286046CE00A29504 /* AppDelegate.swift in Sources */,
 				35C56EC828606E6B00A29504 /* ElasticTableViewCell.swift in Sources */,
-				3554847B28616E160054B570 /* DynamoData.swift in Sources */,
-				3554847728616DFD0054B570 /* RangersData.swift in Sources */,
+				3554847F286177990054B570 /* Store.swift in Sources */,
+				3554848128617C6F0054B570 /* Network.swift in Sources */,
+				3554847728616DFD0054B570 /* CurrentData.swift in Sources */,
 				35C56E8F286046CE00A29504 /* SceneDelegate.swift in Sources */,
 				35C56EC628605C5B00A29504 /* SegmentControl.swift in Sources */,
 			);

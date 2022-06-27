@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+//    var store = Store()
+    
     //MARK: - properties
     private let titleLabel:UILabel = {
         let label = UILabel()
@@ -54,6 +56,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         delegate()
+        Store.shared.getData(catalog: .elastic)
+        
     }
     
     //MARK: - delegate
@@ -77,6 +81,7 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Helpers
+    
     func configureUI(){
 //        view.backgroundColor = .white
         navigationItem.titleView = titleLabel
