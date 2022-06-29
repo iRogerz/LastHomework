@@ -12,9 +12,9 @@ class ElasticFullImageTableViewCell: UITableViewCell {
     static let identifier = "elasticFullImageTableViewCellIdentifier"
     
     //MARK: - properties
-    private let image:UIImageView = {
+    var image:UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "testImage")
+//        imageView.image = UIImage(named: "testImage")
         return imageView
     }()
     //MARK: - init

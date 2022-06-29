@@ -12,8 +12,9 @@ class ElasticTableViewCell: UITableViewCell {
     static let identifier = "elasticTableViewCellIdentifier"
     
     //MARK: - properties
-    private let headShotImage:UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "square.and.arrow.up.circle.fill"))
+    var headShotImage:UIImageView = {
+//        let imageView = UIImageView(image: UIImage(systemName: "square.and.arrow.up.circle.fill"))
+        let imageView = UIImageView()
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.red.cgColor
         //研究一下如何用成圓形的
@@ -24,25 +25,26 @@ class ElasticTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private let nameLabel:UILabel = {
+    var nameLabel:UILabel = {
         let label = UILabel()
-        label.text = "asdfasdf"
+//        label.text = "asdfasdf"
         label.textColor = .white
         return label
     }()
-    private let positionLabel:UILabel = {
+    var positionLabel:UILabel = {
         let label = UILabel()
-        label.text = "asdfasdf"
+//        label.text = "asdfasdf"
         label.textColor = .white
         return label
     }()
-    private let contentLabel:UILabel = {
+    var contentLabel:UILabel = {
         let label = UILabel()
-        label.text = "asdfasdf"
+//        label.text = "asdfasdf"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .white
         return label
     }()
-    
     
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -51,7 +53,6 @@ class ElasticTableViewCell: UITableViewCell {
 
     }
     
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -76,11 +77,8 @@ class ElasticTableViewCell: UITableViewCell {
         labelStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(headShotImage.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().offset(-46)
         }
-        
-        
-        
     }
-    
 
 }

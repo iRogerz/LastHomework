@@ -8,8 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-//    var store = Store()
+    
+    var store = Store()
+    var stores = [CResults]()
     
     //MARK: - properties
     private let titleLabel:UILabel = {
@@ -23,23 +24,30 @@ class ViewController: UIViewController {
     
     private let segmentControl:UISegmentedControl = {
         let segmentControl = UISegmentedControl(items: ["Rangers", "Elastic", "Dyname"])
+        
+        //預設
         segmentControl.selectedSegmentIndex = 1
         segmentControl.selectedSegmentTintColor = .clear
         //ios13之後tintcolor無效,backgroundColor clear還是會有預設灰色背景...好難改
         //        segmentControl.backgroundColor = .clear
-//        segmentControl.layer.borderColor = UIColor.red.cgColor
+        //        segmentControl.layer.borderColor = UIColor.red.cgColor
         segmentControl.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20),
             NSAttributedString.Key.foregroundColor: UIColor.lightGray
-            ], for: .normal)
+        ], for: .normal)
         segmentControl.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20),
             NSAttributedString.Key.foregroundColor: UIColor.white
-            ], for: .selected)
+        ], for: .selected)
         segmentControl.addTarget(self, action: #selector(handleSegmant), for: .valueChanged)
         return segmentControl
     }()
     
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(updateAPI), for: .valueChanged)
+        return refreshControl
+    }()
     
     private let tableView:UITableView = {
         let tableView = UITableView()
@@ -56,10 +64,36 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         delegate()
-        Store.shared.getData(catalog: .elastic)
-        
+        setupAPI()
+        updateAPI()
     }
     
+    func setupAPI(){
+        store.getData(catalog: .rengers)
+        store.getData(catalog: .elastic)
+        store.getData(catalog: .dynamo)
+    }
+    @objc func updateAPI(){
+        guard let team = Catalog(rawValue: segmentControl.selectedSegmentIndex) else {return}
+        store.getData(catalog: team)
+        store.callBackReloadData = {
+            DispatchQueue.main.async {
+                switch team {
+                case .rengers:
+                    self.stores = self.store.rangers
+                case .elastic:
+                    self.stores = self.store.elastics
+                case .dynamo:
+                    self.stores = self.store.dynamos
+                }
+                    
+                self.tableView.reloadData()
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [self] in
+            refreshControl.endRefreshing()
+        }
+    }
     //MARK: - delegate
     func delegate(){
         tableView.delegate = self
@@ -68,25 +102,25 @@ class ViewController: UIViewController {
     
     //MARK: - selectors
     @objc func handleSegmant(_ sender:UISegmentedControl){
-        switch sender.selectedSegmentIndex{
-        case 0:
-            break
-        case 1:
-            break
-        case 2:
-            break
-        default:
-            break
+        guard let team = Catalog(rawValue: sender.selectedSegmentIndex) else {return}
+        switch team {
+        case .rengers:
+            stores = store.rangers
+        case .elastic:
+            stores = store.elastics
+        case .dynamo:
+            stores = store.dynamos
         }
+        tableView.reloadData()
     }
     
     //MARK: - Helpers
-    
     func configureUI(){
-//        view.backgroundColor = .white
+        //        view.backgroundColor = .white
         navigationItem.titleView = titleLabel
         view.addSubview(segmentControl)
         view.addSubview(tableView)
+        tableView.addSubview(refreshControl)
         segmentControl.snp.makeConstraints { make in
             make.top.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
         }
@@ -95,39 +129,49 @@ class ViewController: UIViewController {
             make.width.height.equalToSuperview()
             make.top.equalTo(segmentControl.snp.bottom).offset(20)
         }
-    }
-    enum Segment{
-        case Rangers
-        case Elastic
-        case Dyname
+        
     }
 }
 
 //MARK: - tableView extension
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+//        return store.stores.count
+        return stores.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //到時候用enum
-        switch indexPath.row{
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ElasticFullImageTableViewCell.identifier, for: indexPath) as? ElasticFullImageTableViewCell else { return UITableViewCell()}
-            return cell
-        default:
+//        let currentData = store.stores[indexPath.row]
+        let currentData = stores[indexPath.row]
+        switch currentData{
+        case .employee(let employee):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ElasticTableViewCell.identifier, for: indexPath) as? ElasticTableViewCell else { return UITableViewCell()}
+            
+            //這裡應該會有api呼叫順序錯亂的問題
+            cell.headShotImage.load(url: employee.avatar)
+            cell.nameLabel.text = employee.name
+            cell.positionLabel.text = employee.position
+            let stringRepertation = employee.expertise.joined(separator: ",")
+            cell.contentLabel.text = stringRepertation
+            return cell
+        case .banner(let banner):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ElasticFullImageTableViewCell.identifier, for: indexPath) as? ElasticFullImageTableViewCell else { return UITableViewCell()}
+            cell.image.load(url: banner.url)
             return cell
         }
-            
     }
-    
 }
 
 extension ViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+//        let currentData = store.stores[indexPath.row]
+        let currentData = stores[indexPath.row]
+        switch currentData{
+        case .employee(_):
+            return 150
+        case .banner(_):
+            return 200
+        }
     }
 }
-
 

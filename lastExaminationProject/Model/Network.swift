@@ -72,8 +72,8 @@ class CurrentDataService{
     }
 }
 
-enum Catalog {
-    case rengers, elastic, dynamo
+enum Catalog:Int, CaseIterable {
+    case rengers = 0, elastic, dynamo
 
     var title:String{
         switch self {
