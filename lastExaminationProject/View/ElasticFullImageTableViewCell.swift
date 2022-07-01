@@ -14,7 +14,6 @@ class ElasticFullImageTableViewCell: UITableViewCell {
     //MARK: - properties
     var image:UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(named: "testImage")
         return imageView
     }()
     //MARK: - init

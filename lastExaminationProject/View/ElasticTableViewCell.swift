@@ -13,7 +13,6 @@ class ElasticTableViewCell: UITableViewCell {
     
     //MARK: - properties
     var headShotImage:UIImageView = {
-//        let imageView = UIImageView(image: UIImage(systemName: "square.and.arrow.up.circle.fill"))
         let imageView = UIImageView()
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.red.cgColor
@@ -27,19 +26,16 @@ class ElasticTableViewCell: UITableViewCell {
     
     var nameLabel:UILabel = {
         let label = UILabel()
-//        label.text = "asdfasdf"
         label.textColor = .white
         return label
     }()
     var positionLabel:UILabel = {
         let label = UILabel()
-//        label.text = "asdfasdf"
         label.textColor = .white
         return label
     }()
     var contentLabel:UILabel = {
         let label = UILabel()
-//        label.text = "asdfasdf"
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textColor = .white
