@@ -23,7 +23,8 @@
 		35C56EC828606E6B00A29504 /* ElasticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EC728606E6B00A29504 /* ElasticTableViewCell.swift */; };
 		35C56ECA28606ED000A29504 /* ElasticFullImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56EC928606ED000A29504 /* ElasticFullImageTableViewCell.swift */; };
 		35D8B0B8286EDAFC00D48736 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0B7286EDAFC00D48736 /* MainPageViewController.swift */; };
-		35D8B0BA286F02AA00D48736 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0B9286F02AA00D48736 /* CustomSegmentControl.swift */; };
+		35D8B0C42873FDF700D48736 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0C32873FDF700D48736 /* RootViewController.swift */; };
+		35D8B0CA287413DA00D48736 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0C9287413DA00D48736 /* CustomSegmentControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,8 @@
 		35C56EC728606E6B00A29504 /* ElasticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticTableViewCell.swift; sourceTree = "<group>"; };
 		35C56EC928606ED000A29504 /* ElasticFullImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticFullImageTableViewCell.swift; sourceTree = "<group>"; };
 		35D8B0B7286EDAFC00D48736 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		35D8B0B9286F02AA00D48736 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
+		35D8B0C32873FDF700D48736 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		35D8B0C9287413DA00D48736 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		35C56EBD2860473B00A29504 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				35D8B0C32873FDF700D48736 /* RootViewController.swift */,
 				35D8B0B7286EDAFC00D48736 /* MainPageViewController.swift */,
 				35C56E90286046CE00A29504 /* ListViewController.swift */,
 			);
@@ -169,6 +172,7 @@
 			children = (
 				35C56EC728606E6B00A29504 /* ElasticTableViewCell.swift */,
 				35C56EC928606ED000A29504 /* ElasticFullImageTableViewCell.swift */,
+				35D8B0C9287413DA00D48736 /* CustomSegmentControl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				350CE6A9286A0A4800675F5E /* Extension.swift */,
-				35D8B0B9286F02AA00D48736 /* CustomSegmentControl.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -318,14 +321,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D8B0CA287413DA00D48736 /* CustomSegmentControl.swift in Sources */,
 				35D8B0B8286EDAFC00D48736 /* MainPageViewController.swift in Sources */,
 				35C56ECA28606ED000A29504 /* ElasticFullImageTableViewCell.swift in Sources */,
 				35C56E91286046CE00A29504 /* ListViewController.swift in Sources */,
 				35C56E8D286046CE00A29504 /* AppDelegate.swift in Sources */,
 				35C56EC828606E6B00A29504 /* ElasticTableViewCell.swift in Sources */,
-				35D8B0BA286F02AA00D48736 /* CustomSegmentControl.swift in Sources */,
 				3554847F286177990054B570 /* Store.swift in Sources */,
 				350CE6AA286A0A4800675F5E /* Extension.swift in Sources */,
+				35D8B0C42873FDF700D48736 /* RootViewController.swift in Sources */,
 				3554848128617C6F0054B570 /* Network.swift in Sources */,
 				3554847728616DFD0054B570 /* CurrentData.swift in Sources */,
 				35C56E8F286046CE00A29504 /* SceneDelegate.swift in Sources */,

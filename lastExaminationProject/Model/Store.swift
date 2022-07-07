@@ -8,8 +8,6 @@
 import Foundation
 
 class Store{
-    //    static let shared = Store()
-    
     var callBackReloadData:(() -> ())?
     
     private let userDefault = UserDefaults.standard

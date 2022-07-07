@@ -12,7 +12,7 @@ class ListViewController: UIViewController {
     var store = Store()
     var stores = [CResults]()
     var page:Int?
-    var APICurrentPage = 0
+    var APICurrentPage = 1
     private let APILimitPage = 9
     
     //MARK: - properties
@@ -37,9 +37,11 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         delegate()
+        setupAPI()
     }
     
-    func setupAPI(team:Catalog){
+    func setupAPI(){
+        guard let team = Catalog(rawValue: page!) else {return}
         store.removeAll()
         store.getData(catalog: team, page: 0)
         store.callBackReloadData = {
@@ -69,8 +71,7 @@ class ListViewController: UIViewController {
     
     //MARK: - selectors
     @objc func refreshAPI(){
-        guard let team = Catalog(rawValue: page!) else {return}
-        setupAPI(team: team)
+        setupAPI()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [self] in
             refreshControl.endRefreshing()
         }
@@ -84,7 +85,7 @@ class ListViewController: UIViewController {
         tableView.addSubview(refreshControl)
         tableView.snp.makeConstraints { make in
             make.width.height.equalToSuperview()
-            make.top.equalToSuperview().offset(160)
+            make.top.equalToSuperview()
         }
         
     }
@@ -133,7 +134,7 @@ extension ListViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == stores.count-1{
-            if APICurrentPage < APILimitPage {
+            if APICurrentPage <= APILimitPage {
                 updateAPI(APIpage: APICurrentPage)
                 APICurrentPage += 1
             }
