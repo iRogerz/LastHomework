@@ -38,6 +38,7 @@ class ListViewController: UIViewController {
         configureUI()
         delegate()
         setupAPI()
+        
     }
     
     func setupAPI(){
@@ -79,8 +80,6 @@ class ListViewController: UIViewController {
     
     //MARK: - Helpers
     func configureUI(){
-        //        view.backgroundColor = .white
-        
         view.addSubview(tableView)
         tableView.addSubview(refreshControl)
         tableView.snp.makeConstraints { make in
@@ -89,32 +88,36 @@ class ListViewController: UIViewController {
         }
         
     }
+    
 }
 
 //MARK: - tableView extension
 extension ListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return store.stores.count
         return stores.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let currentData = store.stores[indexPath.row]
         let currentData = stores[indexPath.row]
         switch currentData{
         case .employee(let employee):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ElasticTableViewCell.identifier, for: indexPath) as? ElasticTableViewCell else { return UITableViewCell()}
             
             //這裡應該會有api呼叫順序錯亂的問題?
-            cell.headShotImage.load(url: employee.avatar)
+            let avatarString = employee.avatar.absoluteString
+            cell.headShotImage.load(urlString: avatarString)
             cell.nameLabel.text = employee.name
             cell.positionLabel.text = employee.position
             let stringRepertation = employee.expertise.joined(separator: ",")
             cell.contentLabel.text = stringRepertation
+            
             return cell
         case .banner(let banner):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ElasticFullImageTableViewCell.identifier, for: indexPath) as? ElasticFullImageTableViewCell else { return UITableViewCell()}
-            cell.image.load(url: banner.url)
+            
+            let avatarString = banner.url.absoluteString
+            cell.image.load(urlString: avatarString)
+            
             return cell
         }
     }
@@ -122,15 +125,15 @@ extension ListViewController: UITableViewDataSource{
 
 extension ListViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //        let currentData = store.stores[indexPath.row]
         let currentData = stores[indexPath.row]
         switch currentData{
         case .employee(_):
             return 150
         case .banner(_):
-            return 200
+            return UITableView.automaticDimension
         }
     }
+    
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == stores.count-1{
@@ -140,4 +143,6 @@ extension ListViewController:UITableViewDelegate{
             }
         }
     }
+    
+    
 }

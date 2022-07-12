@@ -8,10 +8,11 @@
 import UIKit
 
 class RootViewController: UIViewController {
-
+    
     var mainPageViewController = MainPageViewController()
     
     var index = 1
+    
     //MARK: - properties
     private let titleLabel:UILabel = {
         let label = UILabel()
@@ -28,7 +29,7 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
+        configPageViewController()
     }
     
     //MARK: - selectors
@@ -37,7 +38,6 @@ class RootViewController: UIViewController {
     //MARK: - Helpers
     func configureUI(){
         navigationItem.titleView = titleLabel
-
         segment.backgroundColor = .clear
         view.addSubview(segment)
         segment.snp.makeConstraints { make in
@@ -45,6 +45,13 @@ class RootViewController: UIViewController {
             make.height.equalTo(50)
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
+        
+    }
+    
+    func configPageViewController(){
+        addChild(mainPageViewController)
+        mainPageViewController.page = index
+        mainPageViewController.passIndexdelegate = self
         view.addSubview(mainPageViewController.view)
         mainPageViewController.view.snp.makeConstraints { make in
             make.top.equalTo(segment.snp.bottom)
@@ -52,7 +59,20 @@ class RootViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
 }
+
+extension RootViewController:PassIndexDelegate{
+    func passindex(index: Int) {
+        self.index = index
+        segment.buttonAction(sender: segment.buttons[index])
+    }
+}
+
+protocol PassIndexDelegate:AnyObject{
+    func passindex(index:Int)
+}
+
 
 enum Catalog:Int, CaseIterable {
     case rengers = 0, elastic, dynamo

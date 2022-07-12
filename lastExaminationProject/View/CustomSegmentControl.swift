@@ -20,17 +20,27 @@ class CustomSegmentControl: UIControl {
     
     //MARK: - properties
     private var buttonTitles = [String]()
-    private var buttons = [UIButton]()
+    var buttons = [UIButton]()
     private var selectorView:UIView = .init()
     
     var textColor:UIColor = .lightGray
     var selectTextColor:UIColor = .white
     var selectViewColor:UIColor = .white
     
-    var index = 1
-
+    var pageIndex = 1
+    
+    
+    func didTapButton(_ button: UIButton) {
+        guard let index = buttons.firstIndex(of: button) else { return }
+        self.pageIndex = index
+        sendActions(for: .valueChanged)
+    }
     //MARK: - selectors
     @objc func buttonAction(sender: UIButton){
+        for button in buttons {
+            button.setTitleColor(textColor, for: .normal)
+        }
+        sender.setTitleColor(selectTextColor, for: .normal)
         selectorView.snp.remakeConstraints { make in
             make.height.equalTo(2)
             make.width.equalTo(sender)
@@ -40,13 +50,7 @@ class CustomSegmentControl: UIControl {
         UIView.animate(withDuration: 0.4) {
             self.layoutIfNeeded()
         }
-        sender.setTitleColor(selectTextColor, for: .normal)
-    }
-    
-    func didTapButton(_ button: UIButton) {
-        guard let index = buttons.firstIndex(of: button) else { return }
-        self.index = index
-        sendActions(for: .valueChanged)
+        pageIndex = sender.tag
     }
     
     required init?(coder: NSCoder) {
@@ -77,21 +81,22 @@ extension CustomSegmentControl{
         addSubview(selectorView)
         selectorView.snp.makeConstraints { make in
             make.height.equalTo(2)
-            make.width.equalTo(buttons[index].snp.width)
-            make.leading.equalTo(buttons[index].snp.leading)
-            make.bottom.equalTo(buttons[index].snp.bottom).offset(-2)
+            make.width.equalTo(buttons[pageIndex].snp.width)
+            make.leading.equalTo(buttons[pageIndex].snp.leading)
+            make.bottom.equalTo(buttons[pageIndex].snp.bottom).offset(-2)
         }
     }
     
     private func createButton(){
         buttons.removeAll()
         subviews.forEach({$0.removeFromSuperview()})
-        for buttonTitle in buttonTitles {
+        for (index, buttonTitle) in buttonTitles.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             button.addTarget(self, action: #selector(buttonAction(sender: )), for: .touchUpInside)
             button.setTitleColor(textColor, for: .normal)
+            button.tag = index
             buttons.append(button)
         }
         buttons[1].setTitleColor(selectTextColor, for: .normal)
